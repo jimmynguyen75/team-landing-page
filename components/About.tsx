@@ -30,9 +30,9 @@ export default function About({}: Props) {
           team is dedicated to delivering outstanding software solutions that surpass expectations. With a shared passion for innovation and a
           commitment to excellence, they bring a wealth of expertise and experience to every project. 
           
-          The team's collaborative approach fosters
+          The team&apos;s collaborative approach fosters
           effective communication and a harmonious work environment. They understand the importance of active listening and value diverse
-          perspectives, leveraging each team member's unique skills to create a cohesive and high-performing unit. 
+          perspectives, leveraging each team member&apos;s unique skills to create a cohesive and high-performing unit. 
           
           Adaptable and agile, this team
           thrives on tackling complex challenges head-on. They meticulously plan, design, and execute projects, ensuring that deadlines are met while
