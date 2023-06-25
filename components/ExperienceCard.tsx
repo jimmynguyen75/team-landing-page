@@ -1,11 +1,15 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { Experience } from "@/typings";
+import { urlForImage } from "@/sanity/lib/image";
 
-type Props = {};
+type Props = {
+  experience: Experience
+};
 
-export default function ExperienceCard({}: Props) {
+export default function ExperienceCard({experience}: Props) {
   return (
-    <article className="flex flex-col rounded-lg items-center space-y-7 flex-shrink-0 w-[500px] md:w-[600px] xl:w-[900px] snap-center bg-[#292929] p-10 opacity-40 hover:opacity-100 cursor-pointer transition-opacity duration-200 overflow-hidden">
+    <article className="flex flex-col rounded-lg items-center space-y-7 flex-shrink-0 w-[500px]  snap-center bg-[#292929] p-10 opacity-40 hover:opacity-100 cursor-pointer transition-opacity duration-200 overflow-hidden">
       <motion.img
         initial={{
           y: -100,
@@ -14,24 +18,24 @@ export default function ExperienceCard({}: Props) {
         transition={{ duration: 1.2 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        className="w-32 h-32 rounded-full xl:w-[200px] xl:h-[200px] object-cover object-center"
-        src="https://preview.redd.it/zk1a36ttu6f91.png?width=1024&format=png&auto=webp&s=dd48ab7c449888ba26012338f0157669e9d4a7da"
+        className="w-32 h-32 rounded-full xl:w-[100px] xl:h-[100px] object-cover"
+        src={urlForImage(experience?.companyImage).url()}
         alt=""
       ></motion.img>
-      <div className="px-0 md:px-10">
-        <h4 className="text-4xl font-light">Creator of Project</h4>
-        <p className="font-bold text-2xl mt-1">Jimmy</p>
-        <div className="flex space-x-2 my-2">
-            <img className="h-10 w-10 rounded-full object-contain" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/2300px-React-icon.svg.png" alt="" />
-            <img className="h-10 w-10 rounded-full object-contain" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/2300px-React-icon.svg.png" alt="" />           <img className="h-10 w-10 rounded-full object-contain" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/2300px-React-icon.svg.png" alt="" />           <img className="h-10 w-10 rounded-full object-contain" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/2300px-React-icon.svg.png" alt="" />
+      <div className="px-0 md:px-2">
+        <h4 className="text-xl font-light">{experience?.company}</h4>
+        <p className="font-bold text-base mt-1">{experience?.jobTitle}</p>
+        <div className="flex space-x-2 my-1">
+        {experience?.technologies?.map(technology => (
+          <img key={technology?._id} className="h-10 w-10 rounded-full object-cover" src={urlForImage(technology?.image).url()} alt="" />
+        ))}
+  
         </div>
-        <p className="uppercase py-5 text-gray-300">Started wordk...- Ended....</p>
-        <ul className="list-disc space-y-4 ml-5 text-lg">
-          <li>Sumary of points</li>
-          <li>Sumary of points</li>
-          <li>Sumary of points</li>
-          <li>Sumary of points</li>
-          <li>Sumary of points</li>
+        {/* <p className="uppercase py-2 text-gray-300">Started wordk...- Ended....</p> */}
+        <ul className="list-disc space-y-1 ml-5 text-lg">
+          {experience?.points?.map((point, i) => (
+            <li key={i}>{point}</li>
+          ))}
         </ul>
       </div>
     </article>

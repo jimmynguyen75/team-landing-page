@@ -1,13 +1,14 @@
 "use client";
 
-import React from "react";
+import { Social } from "@/typings";
 import { SocialIcon } from "react-social-icons";
 import { motion } from "framer-motion";
-import Link from "next/link";
 
-type Props = {};
+type Props = {
+  socials?: Social[];
+};
 
-export default function Header({}: Props) {
+export default function Header({ socials }: Props) {
   return (
     <header className="top-0 flex p-5 items-start justify-between sticky max-w-7xl mx-auto z-20 xl:items-center">
       <motion.div
@@ -16,9 +17,9 @@ export default function Header({}: Props) {
         transition={{ duration: 1.5 }}
         className="flex flex-row items-center"
       >
-        <SocialIcon url="https://twitter.com" fgColor="gray" bgColor="transparent" />
-        <SocialIcon url="https://youtube.com" fgColor="gray" bgColor="transparent" />
-        <SocialIcon url="https://facebook.com" fgColor="gray" bgColor="transparent" />
+        {socials?.map((social) => (
+          <SocialIcon key={social._id} url={social.url} fgColor="gray" bgColor="transparent" />
+        ))}
       </motion.div>
       <motion.div
         initial={{ x: 500, opacity: 0, scale: 0.5 }}

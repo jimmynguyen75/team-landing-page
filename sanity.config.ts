@@ -11,7 +11,7 @@ import {schema} from './sanity/schema'
 import {visionTool} from '@sanity/vision'
 
 export default defineConfig({
-  basePath: '/studios',
+  basePath: '/admin',
   projectId,
   dataset,
   // Add and edit the content schema in the './sanity/schema' folder

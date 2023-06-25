@@ -4,13 +4,17 @@ import { Cursor, useTypewriter } from "react-simple-typewriter";
 
 import BackgroundCircles from "./BackgroundCircles";
 import Link from "next/link";
+import { PageInfo } from "@/typings";
 import React from "react";
+import { urlForImage } from "@/sanity/lib/image";
 
-type Props = {};
+type Props = {
+  pageInfo?: PageInfo
+};
 
-export default function Hero({}: Props) {
+export default function Hero({pageInfo}: Props) {
   const [text, count] = useTypewriter({
-    words: ["Hello", "From", "Typewriter", "Hook!"],
+    words: [`Hello ${pageInfo?.name}`, "From", "Typewriter", "Hook!"],
     loop: true,
     delaySpeed: 2000,
   });
@@ -19,28 +23,28 @@ export default function Hero({}: Props) {
       <BackgroundCircles />
       <img
         className="relative rounded-full h-32 w-32 mx-auto object-cover"
-        src="https://photo2.tinhte.vn/data/attachment-files/2023/01/6293171_Mister_Bumbles_A_cute_baby_clockwork_owl_with_big_crystaline.jpg"
+        src={urlForImage(pageInfo?.heroImage).url()}
         alt=""
       />
       <div className="z-20">
-        <h2 className="text-sm uppercase text-gray-500 pb-2 tracking-[15px]">Software Engineer</h2>
+        <h2 className="text-sm uppercase text-gray-500 pb-2 tracking-[15px]">{pageInfo?.role}</h2>
         <h1 className="text-5xl lg:text-6xl font-semibold px-10">
           <span className="mr-3">{text}</span>
           <Cursor cursorColor="#F7AB0A" />
         </h1>
         <div className="pt-5">
-          <Link href="#about">
+          <a href="#about">
             <button className="heroButton">About</button>
-          </Link>
-          <Link href="#experience">
+          </a>
+          <a href="#experience">
             <button className="heroButton">Experience</button>
-          </Link>
-          <Link href="#skills">
+          </a>
+          <a href="#skills">
             <button className="heroButton">Skills</button>
-          </Link>
-          <Link href="#project">
+          </a>
+          <a href="#projects">
             <button className="heroButton">Projects</button>
-          </Link>
+          </a>
         </div>
       </div>
     </div>

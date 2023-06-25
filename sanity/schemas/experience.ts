@@ -7,12 +7,12 @@ export default defineType({
   fields: [
     defineField({
       name: "jobTitle",
-      title: "JobTitle",
+      title: "Name",
       type: "string",
     }),
     defineField({
       name: "companyImage",
-      title: "CompanyImage",
+      title: "Image",
       type: "image",
       options: {
         hotspot: true,
@@ -20,7 +20,7 @@ export default defineType({
     }),
     defineField({
       name: "company",
-      title: "Company",
+      title: "Project",
       type: "text",
     }),
     defineField({
