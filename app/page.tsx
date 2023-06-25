@@ -23,11 +23,11 @@ type Props = {
 };
 
 export default async function () {
-  const socials: Social[] = await fetchSocials();
+  const socials: Social[] = []//await fetchSocials();
   const pageInfo: PageInfo = await fetchPageInfo();
-  const experiences: Experience[] = await fetchExperience();
-  const skills: Skill[] = await fetchSkills();
-  const projects: Project[] = await fetchProjects();
+  const experiences: Experience[] = []//await fetchExperience();
+  const skills: Skill[] = []//await fetchSkills();
+  const projects: Project[] = []//await fetchProjects();
   return (
     <div className="bg-[rgb(36,36,36)] text-white h-screen snap-y snap-mandatory overflow-y-scroll overflow-x-hidden z-0 scrollbar-thin scrollbar-thumb-[#F7AB0A]/80 scrollbar-track-gray-400/20">
       <Header socials={socials}/>
