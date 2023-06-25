@@ -24,51 +24,51 @@ import { fetchSocials } from "@/utils/fetchSocials";
 //   return socials;
 // };
 
-// async function getSocial() {
-//   const socials: Social[] = await fetchSocials();
-//   if (!socials) {
-//     throw new Error("Failed to fetch data");
-//   }
-//   return socials;
-// }
-// async function getPageInfo() {
-//   const pageInfo: PageInfo = await fetchPageInfo();
-//   if (!pageInfo) {
-//     throw new Error("Failed to fetch data");
-//   }
-//   return pageInfo;
-// }
-// async function getExperience() {
-//   const experiences: Experience[] = await fetchExperience();
-//   if (!experiences) {
-//     throw new Error("Failed to fetch data");
-//   }
-//   return experiences;
-// }
-// async function getSkill() {
-//   const skills: Skill[] = await fetchSkills();
-//   if (!skills) {
-//     throw new Error("Failed to fetch data");
-//   }
-//   return skills;
-// }
-// async function getProject() {
-//   const projects: Project[] = await fetchProjects();
-//   if (!projects) {
-//     throw new Error("Failed to fetch data");
-//   }
-//   return projects;
-// }
+async function getSocial() {
+  const socials: Social[] = await fetchSocials();
+  if (!socials) {
+    throw new Error("Failed to fetch data");
+  }
+  return socials;
+}
+async function getPageInfo() {
+  const pageInfo: PageInfo = await fetchPageInfo();
+  if (!pageInfo) {
+    throw new Error("Failed to fetch data");
+  }
+  return pageInfo;
+}
+async function getExperience() {
+  const experiences: Experience[] = await fetchExperience();
+  if (!experiences) {
+    throw new Error("Failed to fetch data");
+  }
+  return experiences;
+}
+async function getSkill() {
+  const skills: Skill[] = await fetchSkills();
+  if (!skills) {
+    throw new Error("Failed to fetch data");
+  }
+  return skills;
+}
+async function getProject() {
+  const projects: Project[] = await fetchProjects();
+  if (!projects) {
+    throw new Error("Failed to fetch data");
+  }
+  return projects;
+}
 const Home = async () => {
-  // const pageInfo: PageInfo = await getPageInfo();
-  // const experiences: Experience[] = await getExperience();
-  // const skills: Skill[] = await getSkill();
-  // const projects: Project[] = await getProject();
-  // const socials: Social[] = await getSocial();
+  const pageInfo: PageInfo = await getPageInfo();
+  const experiences: Experience[] = await getExperience();
+  const skills: Skill[] = await getSkill();
+  const projects: Project[] = await getProject();
+  const socials: Social[] = await getSocial();
 
   return (
     <div className="bg-[rgb(36,36,36)] text-white h-screen snap-y snap-mandatory overflow-y-scroll overflow-x-hidden z-0 scrollbar-thin scrollbar-thumb-[#F7AB0A]/80 scrollbar-track-gray-400/20">
-      {/* <Header socials={socials} />
+      <Header socials={socials} />
       <section id="hero" className="snap-start">
         <Hero pageInfo={pageInfo} />
       </section>
@@ -86,7 +86,7 @@ const Home = async () => {
       </section>
       <section id="contact" className="snap-start">
         <ContactMe />
-      </section> */}
+      </section>
       <a href="#hero">
         <footer className="sticky bottom-5 w-full cursor-pointer">
           <div className="flex items-center justify-center">
